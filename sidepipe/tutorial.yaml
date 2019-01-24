@@ -1,0 +1,40 @@
+streams:
+    0:
+        - audio_reader
+        - framing
+        - hamming
+        - fft
+        - spectrum
+        - dct
+        - temporal_context
+        - normalize
+        - file_writer
+
+options:
+    0:
+        sampling_rate    : 8000
+        lowfreq          : 200
+        maxfreq          : 3500
+        window_duration  : 0.025
+        window_shift     : 0.01
+        drop_lowE_frames : energy
+        drop_alpha       : 2.0
+        snr              : 40
+        prefac           : 0.97
+        nlogfilt         : 24
+        nlinfilt         : 0
+        log_energy       : True
+        context          :
+                         - 0
+                         - 0
+        output_id        : mfcc
+        nceps            : 19
+        delta            : 2
+        delta_mode       : delta
+        delta_window     : 3
+        delta_filter     : [.25, .5, .25, 0, -0.25, -0.5, -0.25]
+        feat_norm        : cmvn
+        feat_norm_all    : False
+        output_dir       : ./
+        output_ext       : .h5
+        output_format    : hdf5
